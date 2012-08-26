@@ -1,0 +1,28 @@
+<head>
+  <title>qacer</title>
+</head>
+
+<body>
+  {{> todo}}
+</body>
+
+<template name="todo">
+  <h1>What to do next?!</h1>
+  {{> todo_items}}
+</template>
+
+<template name="todo_items">
+  <ul>
+		{{#each todos}}
+			<li>
+				<input type="checkbox" value="{{text}}">
+				{{text}}
+				{{#if parent}}
+					<ul><li><input type="checkbox" value="{{text}}">nested</li></ul>
+				{{/if}}
+			</li>
+		{{/each}}
+  </ul>
+</template>
+
+
